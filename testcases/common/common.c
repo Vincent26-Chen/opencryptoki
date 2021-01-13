@@ -1146,6 +1146,9 @@ CK_BBOOL do_GetFunctionList(void)
         goto ret;
     }
 
+    // Vincent: IBM pkcs11 library only support PKCS#11 2.4 yet
+    return TRUE;
+
     *(void **)(&pfoo) = dlsym(pkcs11lib, "C_GetInterfaceList");
     if (pfoo == NULL) {
         goto ret;
